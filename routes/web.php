@@ -9,10 +9,10 @@ Route::view('/', 'home')->name('home');
 Route::get(config('site.pages.struktur.uri'), [StrukturController::class, 'index'])->name('pages.struktur');
 Route::view(config('site.pages.logo.uri'), 'pages.logo')->name('pages.logo');
 Route::view(config('site.pages.sejarah.uri'), 'pages.sejarah')->name('pages.sejarah');
-
+Route::view(config('site.pages.galeri.uri'), 'pages.galeri')->name('pages.galeri');
 // Halaman lain sementara memakai placeholder "segera hadir" sampai dimigrasikan.
 // Saat sebuah halaman siap, tambahkan route-nya di atas lalu masukkan kuncinya ke $migrated.
-$migrated = ['struktur', 'logo', 'sejarah'];
+$migrated = ['struktur', 'logo', 'sejarah', 'galeri'];
 
 foreach (config('site.pages') as $name => $page) {
     if (in_array($name, $migrated, true)) {

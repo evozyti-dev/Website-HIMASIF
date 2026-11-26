@@ -1,0 +1,403 @@
+/* =========================================================
+   HALAMAN GALERI HIMASIF — Layout sesuai Desain Ori + Foto
+   Dipakai bersama resources/css/tentang-kami.css
+   ========================================================= */
+
+/* ---- HERO 2 KOLOM ---- */
+.tk-gl-hero__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.tk-gl-hero__copy {
+    text-align: center;
+}
+
+.tk-gl-hero__copy .tk-btn-row {
+    justify-content: center;
+}
+
+@media (min-width: 992px) {
+    .tk-gl-hero__grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 64px;
+    }
+    .tk-gl-hero__copy {
+        text-align: left;
+    }
+    .tk-gl-hero__copy .tk-eyebrow {
+        justify-content: flex-start;
+    }
+    .tk-gl-hero__copy .tk-desc {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .tk-gl-hero__copy .tk-btn-row {
+        justify-content: flex-start;
+    }
+}
+
+/* Tumpukan Bingkai Foto Miring di Kanan Hero */
+.tk-gl-stack {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 4 / 3;
+    margin: 0 auto;
+}
+
+.tk-gl-stack__card {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    border: 1.5px solid rgba(214, 194, 106, 0.45);
+    background: rgba(8, 22, 64, 0.55);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    transition: transform 0.5s var(--tk-ease-out);
+}
+
+.tk-gl-stack__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.tk-gl-stack__card--back {
+    transform: rotate(-8deg) translate(-12px, 6px);
+    border-color: rgba(214, 194, 106, 0.25);
+}
+
+.tk-gl-stack__card--mid {
+    transform: rotate(6deg) translate(10px, -6px);
+    border-color: rgba(214, 194, 106, 0.38);
+}
+
+.tk-gl-stack__card--front {
+    transform: rotate(-1.5deg);
+    border-color: var(--tk-gold);
+    background: linear-gradient(145deg, rgba(12, 32, 86, 0.78), rgba(4, 15, 52, 0.92));
+}
+
+.tk-gl-stack__card--front::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(1, 8, 45, 0.45), transparent 55%);
+    pointer-events: none;
+}
+
+.tk-gl-stack:hover .tk-gl-stack__card--back {
+    transform: rotate(-12deg) translate(-18px, 10px);
+}
+
+.tk-gl-stack:hover .tk-gl-stack__card--mid {
+    transform: rotate(10deg) translate(16px, -10px);
+}
+
+.tk-gl-stack__badge {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    z-index: 3;
+    padding: 7px 18px;
+    border-radius: 9999px;
+    background: var(--tk-gold);
+    color: #01082D;
+    font-family: var(--tk-font-head);
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(214, 194, 106, 0.35);
+}
+
+/* ---- FILTER TAB PILL ---- */
+.tk-gl-filter {
+    position: relative;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px;
+    border-radius: 9999px;
+    border: 1px solid var(--tk-border);
+    background: rgba(4, 17, 58, 0.7);
+    margin: 0 auto 40px;
+}
+
+.tk-filter__pill {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    height: calc(100% - 12px);
+    border-radius: 9999px;
+    background: var(--tk-gold);
+    transition: transform 0.35s var(--tk-ease-out), width 0.35s var(--tk-ease-out);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.tk-filter__btn {
+    position: relative;
+    z-index: 1;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    border: none;
+    background: transparent;
+    color: var(--tk-cream);
+    font-family: var(--tk-font-head);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.tk-filter__btn.is-active {
+    color: #01082D;
+    font-weight: 700;
+}
+
+/* ---- GRID BENTO / MASONRY 4 KOLOM ---- */
+.tk-gallery {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    gap: 18px;
+}
+
+@media (min-width: 640px) {
+    .tk-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 992px) {
+    .tk-gallery {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-auto-rows: 175px;
+    }
+    .tk-gallery__item--wide {
+        grid-column: span 2;
+    }
+    .tk-gallery__item--tall {
+        grid-row: span 2;
+    }
+}
+
+.tk-gallery__item {
+    position: relative;
+    min-height: 175px;
+    border-radius: 16px;
+    border: 1px solid rgba(214, 194, 106, 0.35);
+    background: linear-gradient(160deg, rgba(10, 29, 82, 0.72), rgba(4, 14, 48, 0.88));
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px 18px;
+    transition: transform 0.35s var(--tk-ease-out), border-color 0.3s, box-shadow 0.3s, opacity 0.35s;
+}
+
+.tk-gallery__item:hover {
+    transform: translateY(-4px);
+    border-color: var(--tk-gold);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.tk-gallery__item.is-hidden {
+    display: none;
+}
+
+.tk-gallery__item.is-hiding {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.tk-gallery__item.is-entering {
+    animation: tkGlFadeIn 0.45s var(--tk-ease-out) both;
+}
+
+@keyframes tkGlFadeIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+}
+
+/* Foto Asli di Kartu Bento */
+.tk-gallery__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.6s var(--tk-ease-out);
+}
+
+.tk-gallery__item--placeholder .tk-gallery__photo {
+    display: none;
+}
+
+/* Jika foto asli sudah diisi: teks turun ke bawah kartu & ikon placeholder disembunyikan */
+.tk-gallery__item:not(.tk-gallery__item--placeholder) {
+    align-items: flex-end;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 18px 20px;
+}
+
+.tk-gallery__item:not(.tk-gallery__item--placeholder)::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(1, 8, 45, 0.9) 10%, rgba(1, 8, 45, 0.25) 65%, transparent);
+    z-index: 1;
+}
+
+.tk-gallery__item:not(.tk-gallery__item--placeholder):hover .tk-gallery__photo {
+    transform: scale(1.06);
+}
+
+.tk-gallery__item:not(.tk-gallery__item--placeholder) .tk-gallery__center {
+    align-items: flex-start;
+}
+
+.tk-gallery__item:not(.tk-gallery__item--placeholder) .tk-gallery__icon {
+    display: none;
+}
+
+/* Konten Kartu */
+.tk-gallery__center {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.tk-gallery__icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: rgba(214, 194, 106, 0.14);
+    border: 1px solid rgba(214, 194, 106, 0.45);
+    color: var(--tk-gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.tk-gallery__center h3 {
+    margin: 0;
+    font-family: var(--tk-font-head);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--tk-cream);
+}
+
+.tk-gallery__center p {
+    margin: 0;
+    font-size: 11.5px;
+    color: rgba(240, 237, 219, 0.72);
+}
+
+.tk-gallery__chip {
+    display: none;
+}
+
+.tk-gallery__empty {
+    display: none;
+    text-align: center;
+    padding: 36px 20px;
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+.tk-gallery__empty.is-show {
+    display: block;
+}
+
+/* ---- LIGHTBOX MODAL ---- */
+body.tk-no-scroll {
+    overflow: hidden;
+}
+
+.tk-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background: rgba(1, 8, 45, 0.92);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.tk-lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tk-lightbox__box {
+    max-width: 780px;
+    width: 100%;
+    text-align: center;
+}
+
+.tk-lightbox__img {
+    max-height: 68vh;
+    max-width: 100%;
+    margin: 0 auto 16px;
+    border-radius: 14px;
+    border: 1px solid var(--tk-border);
+    transition: opacity 0.2s ease;
+}
+
+.tk-lightbox__img.is-swapping {
+    opacity: 0.3;
+}
+
+.tk-lightbox__cap h3 {
+    margin: 0 0 4px;
+    font-family: var(--tk-font-head);
+    font-size: 19px;
+    color: var(--tk-cream);
+}
+
+.tk-lightbox__cap span {
+    font-size: 13px;
+    color: var(--tk-gold);
+}
+
+.tk-lightbox__count {
+    margin-top: 8px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.tk-lightbox__close,
+.tk-lightbox__prev,
+.tk-lightbox__next {
+    position: absolute;
+    z-index: 2;
+}
+
+.tk-lightbox__close { top: 20px; right: 20px; }
+.tk-lightbox__prev { left: 20px; top: 50%; transform: translateY(-50%); }
+.tk-lightbox__next { right: 20px; top: 50%; transform: translateY(-50%); }
+
+@media (max-width: 640px) {
+    .tk-gl-filter { border-radius: 16px; }
+    .tk-filter__pill { display: none; }
+    .tk-filter__btn.is-active { background: var(--tk-gold); }
+}

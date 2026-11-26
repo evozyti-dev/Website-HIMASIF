@@ -11,6 +11,7 @@ export default defineConfig({
                 'resources/js/struktur.js',
                 'resources/js/logo.js',
                 'resources/js/sejarah.js',
+                'resources/js/galeri.js'
             ],
             refresh: true,
         }),
