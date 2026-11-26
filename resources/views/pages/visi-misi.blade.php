@@ -214,8 +214,7 @@
                                         cx="48"
                                         cy="48"
                                         r="40"
-                                        @if ($target['icon']) style="stroke-dashoffset: 0;" @endif
-                                    />
+                                        style="{{ $target['icon'] ? 'stroke-dashoffset: 0;' : '' }}"/>
                                 </svg>
                                 <div class="tk-ring__label">
                                     @if ($target['icon'])
