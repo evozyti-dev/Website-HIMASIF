@@ -138,6 +138,7 @@
             <div class="tk-container">
                 <div class="tk-section-head tk-center" data-aos="fade-up" data-aos-duration="800">
                     <span class="tk-eyebrow tk-eyebrow--center">Misi</span>
+                    {{-- prettier-ignore --}}
                     <h2 class="tk-title">Lima Langkah Membangun <span class="tk-text-gold">Generasi Sistem Informasi</span></h2>
                 </div>
 
@@ -185,36 +186,7 @@
                                         cx="48"
                                         cy="48"
                                         r="40"
-                                        @if ($target['icon']) style="stroke-dashoffset: 0;" @endif
-                                    />
-                                </svg>
-                                <div class="tk-ring__label">
-                                    @if ($target['icon'])
-                                        <i class="{{ $target['icon'] }} tk-ring__icon" aria-hidden="true"></i>
-                                    @else
-                                        0%
-                                    @endif
-                                </div>
-                            </div>
-            <div class="tk-container">
-                <div class="tk-section-head tk-center" data-aos="fade-up" data-aos-duration="800">
-                    <span class="tk-eyebrow tk-eyebrow--center">Target</span>
-                    <h2 class="tk-title">Mengukur <span class="tk-text-gold">Keberhasilan Kami</span></h2>
-                    <p class="tk-desc">Visi yang terarah, komitmen yang nyata, dan dampak yang bisa diukur.</p>
-                </div>
-
-                <div class="tk-goals">
-                    @foreach ($targetList as $target)
-                        <article class="tk-card tk-goal" data-tk-ring="{{ $target['ring'] }}" data-aos="fade-up">
-                            <div class="tk-ring">
-                                <svg viewBox="0 0 96 96" aria-hidden="true">
-                                    <circle class="tk-ring__bg" cx="48" cy="48" r="40" />
-                                    <circle
-                                        class="tk-ring__val"
-                                        cx="48"
-                                        cy="48"
-                                        r="40"
-                                        style="{{ $target['icon'] ? 'stroke-dashoffset: 0;' : '' }}"/>
+                                        style="{{ $target['icon'] ? 'stroke-dashoffset: 0;' : '' }}" />
                                 </svg>
                                 <div class="tk-ring__label">
                                     @if ($target['icon'])
@@ -242,4 +214,3 @@
         </section>
     </div>
 </x-layouts.app>
-

@@ -18,6 +18,6 @@ class VisiMisiTest extends TestCase
         $this->get(route('pages.visi-misi'))
             ->assertOk()
             ->assertSee('VISI')
-            ->assertSee('Lima Langkah Membangun Generasi Sistem Informasi');
+            ->assertSeeText('Lima Langkah Membangun Generasi Sistem Informasi');
     }
 }

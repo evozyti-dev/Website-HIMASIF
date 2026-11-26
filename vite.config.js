@@ -12,7 +12,8 @@ export default defineConfig({
                 'resources/js/logo.js',
                 'resources/js/sejarah.js',
                 'resources/js/galeri.js',
-                'resources/js/visi-misi.js'
+                'resources/js/visi-misi.js', 
+                'resources/js/kontak.js'
             ],
             refresh: true,
         }),
